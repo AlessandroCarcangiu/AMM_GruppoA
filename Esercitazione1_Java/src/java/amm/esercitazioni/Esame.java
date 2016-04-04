@@ -1,3 +1,5 @@
+package amm.esercitazioni;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,21 +17,12 @@ public class Esame {
     private String matricolaStudente = "00000";
     private String nomeEsame = "esame";
     private String voto = "0";
-    private String commentoProf = "-";
+    private String note = "-";
     
     /* Costruttore */
     public Esame()
     {
         
-    }
-    public Esame(String nomeStudente, String cognomeStudente, String matricolaStudente, String nomeEsame, String voto, String commentoProf)
-    {
-        this.nomeStudente = nomeStudente;
-        this.cognomeStudente = cognomeStudente;
-        this.matricolaStudente = matricolaStudente;
-        this.nomeEsame = nomeEsame;
-        this.voto = voto;
-        this.commentoProf = commentoProf;
     }
     
     /* Metodi */
@@ -105,16 +98,18 @@ public class Esame {
     }
 
     /**
-     * @return the commentoProf
+     * @return the note
      */
-    public String getCommentoProf() {
-        return commentoProf;
+    public String getNote() {
+        return note;
     }
 
     /**
-     * @param commentoProf the commentoProf to set
+     * @param note the note to set
      */
-    public void setCommentoProf(String commentoProf) {
-        this.commentoProf = commentoProf;
+    public void setNote(String note) {
+        this.note = note;
     }
+
+    
 }
