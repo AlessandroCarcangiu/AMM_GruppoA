@@ -52,9 +52,13 @@ try (PrintWriter out = response.getWriter()) {
             // Preleva i dati inviati
             String nomeStudente = request.getParameter("NomeStudente");
             String cognomeStudente = request.getParameter("CognomeStudente");
-            String matricola = request.getParameter("Matricola");
+            String matricola = "";
+            if(Integer.parseInt(request.getParameter("Matricola")) > 0)
+                matricola = request.getParameter("Matricola");
             String nomeEsame = request.getParameter("ListaEsami");
-            String voto = request.getParameter("Voto");
+            String voto = "";
+            if(Integer.parseInt(request.getParameter("Voto")) > 0)
+                voto = request.getParameter("Voto");
             String commentoProf = request.getParameter("Note");
             
             // Assegna i dati prelevati
