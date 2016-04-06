@@ -3,37 +3,31 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package amm.esercitaione1;
 
 /**
  *
  * @author Alessandro
  */
 public class Esame {
-    /* Attributi */
-    private String nomeStudente = "nome";
-    private String cognomeStudente = "cognome";
-    private String matricolaStudente = "00000";
-    private String nomeEsame = "esame";
-    private String voto = "0";
-    private String commentoProf = "-";
     
-    /* Costruttore */
+    private String nomeStudente;
+    private String cognomeStudente;
+    private String matricolaStudente;
+    private String nomeEsame;
+    private String voto;
+    private String nota;
+
+    
     public Esame()
     {
-        
+        nomeStudente = "";
+        cognomeStudente = "";
+        matricolaStudente = "";
+        nomeEsame = "";
+        voto = "";
+        nota = "_";
     }
-    public Esame(String nomeStudente, String cognomeStudente, String matricolaStudente, String nomeEsame, String voto, String commentoProf)
-    {
-        this.nomeStudente = nomeStudente;
-        this.cognomeStudente = cognomeStudente;
-        this.matricolaStudente = matricolaStudente;
-        this.nomeEsame = nomeEsame;
-        this.voto = voto;
-        this.commentoProf = commentoProf;
-    }
-    
-    /* Metodi */
-
     /**
      * @return the nomeStudente
      */
@@ -105,16 +99,17 @@ public class Esame {
     }
 
     /**
-     * @return the commentoProf
+     * @return the nota
      */
-    public String getCommentoProf() {
-        return commentoProf;
+    public String getNota() {
+        return nota;
     }
 
     /**
-     * @param commentoProf the commentoProf to set
+     * @param nota the nota to set
      */
-    public void setCommentoProf(String commentoProf) {
-        this.commentoProf = commentoProf;
+    public void setNota(String nota) {
+        this.nota = nota;
     }
+    
 }
