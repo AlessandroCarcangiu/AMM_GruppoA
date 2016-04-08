@@ -34,8 +34,8 @@ try (PrintWriter out = response.getWriter()) {
             out.println("    <input type=\"range\" min=18 max=31 name=\"Voto\" id=\"Voto\" /> ");
             out.println("</div>");
             out.println("<div>");
-            out.println("    <label for=\"Note\">Note</label>");
-            out.println("    <textarea name=\"Note\" id=\"Note\" ></textarea>");
+            out.println("    <label for=\"Nota\">Note</label>");
+            out.println("    <textarea name=\"Nota\" id=\"Nota\" ></textarea>");
             out.println("</div>");
             out.println("<button type=\"submit\" name=\"registra\">Registra</button>");
             out.println("</form>");
@@ -53,12 +53,10 @@ try (PrintWriter out = response.getWriter()) {
             String nomeStudente = request.getParameter("NomeStudente");
             String cognomeStudente = request.getParameter("CognomeStudente");
             String matricola = "";
-            if(Integer.parseInt(request.getParameter("Matricola")) > 0)
-                matricola = request.getParameter("Matricola");
+            int matricola = Integer.parseInt(request.getParameter("Matricola"));
             String nomeEsame = request.getParameter("ListaEsami");
             String voto = "";
-            if(Integer.parseInt(request.getParameter("Voto")) > 0)
-                voto = request.getParameter("Voto");
+            int voto = Integer.parseInt(request.getParameter("Voto"));
             String commentoProf = request.getParameter("Note");
             
             // Assegna i dati prelevati
@@ -67,7 +65,7 @@ try (PrintWriter out = response.getWriter()) {
             esame.setMatricolaStudente(matricola);
             esame.setNomeEsame(nomeEsame);
             esame.setVoto(voto);
-            esame.setNote(commentoProf);
+            esame.setNota(Nota);
             // Esame registrato
             registrato = true;
         }
