@@ -52,10 +52,8 @@ try (PrintWriter out = response.getWriter()) {
             // Preleva i dati inviati
             String nomeStudente = request.getParameter("NomeStudente");
             String cognomeStudente = request.getParameter("CognomeStudente");
-            String matricola = "";
             int matricola = Integer.parseInt(request.getParameter("Matricola"));
             String nomeEsame = request.getParameter("ListaEsami");
-            String voto = "";
             int voto = Integer.parseInt(request.getParameter("Voto"));
             String commentoProf = request.getParameter("Note");
             
