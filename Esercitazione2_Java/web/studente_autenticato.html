@@ -16,32 +16,41 @@ and open the template in the editor.
     <body>
         <div id="page">
             <header>
+
                 <div class="social">
-                    <p>Accesso al sistema</p>
                     <ul>
-                        <li id="facebook"><a href="http://www.facebook.com">facebook</a></li>
+                        <li id="facebook"><a href="www.facebook.com">facebook</a></li>
                         <li id="twitter"><a href="https://twitter.com/">twitter</a></li>
                         <li id="linkedin"><a href="http://www.linkedin.com/">linkedin</a></li>
                     </ul>
                 </div>
                 <!--  header -->
                 <div id="header">
+                    
                     <div id="logo">
                         <h1>EsAMMi</h1>
                     </div>
 
-                    <!-- select per la versione del menu mobile -->
+
                     <select class="menu">
-                        <option>Menu</option>
+                        <option>Home</option>
+                        <option>Anagrafica</option>
+                        <option>Libretto</option>
+                        <option>Iscrizione</option>
+
                     </select>
-                    <!-- tabs -->
-                    <div id="menu">
+                   <div id="menu">
                         <ul>
-                            <li><a class="current_page_item" href="#">Home</a></li>
-                        </ul>                   
-                    </div>
+                            <li class="current_page_item"><a href="#">Home</a></li>
+                            <li><a href="studente_anagrafica.html">Anagrafica</a></li>
+                            <li><a href="studente_esami.html">Libretto</a></li>
+                            <li><a href="studente_iscrizione.html">Iscrizione</a></li>
+                        </ul>
+                    </div> 
                 </div>
+
             </header>
+
             <!-- start page -->
             <!--  sidebar 1 -->
             <div id="sidebar1">
@@ -49,14 +58,17 @@ and open the template in the editor.
                     <li id="categories">
                         <h2 class="icon-title">Navigazione</h2>
                         <ul>
-                            <li><a href="#˙">Home</a></li>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="studente_anagrafica.html">Anagrafica</a></li>
+                            <li><a href="studente_esami.html">Libretto</a></li>
+                            <li><a href="studente_iscrizione.html">Iscrizione</a></li>
                         </ul>
                     </li>
                     <li id="external">
                         <h2 class="icon-title">Link esterni</h2>
                         <ul>
-                            <li><a href="http://www.unica.it/">Università di Cagliari</a></li>
-                            <li><a href="http://www.unica.it/">Facoltà</a></li>
+                            <li><a href="http://www.unica.it/">Universit&agrave; di Cagliari</a></li>
+                            <li><a href="http://www.unica.it/">Facolt&agrave;</a></li>
 
                         </ul>
                     </li>
@@ -65,44 +77,39 @@ and open the template in the editor.
             </div>
 
             <div id="sidebar2">
-                <h2 class="icon-title" id="help">Istruzioni</h2>
+                <h2 id="help" class="icon-title">Istruzioni</h2>
                 <p>
-                    Pagina per l'accesso al sistema.
+                    Seleziona una delle  seguentifunzionalit&agrave; disponibili per 
+                    la gestione dei tuoi esami:
                 </p>
+                <ol>
+                    <li>
+                        <strong>Anagrafica</strong> per modificare i tuoi dati 
+                        anagrafici e la tua password.
+                    </li>
+                    <li>
+                        <strong>Libretto</strong> per visualizzare gli esami gi&agrave;
+                        sostenuti.
+                    </li>
+                    <li>
+                        <strong>Iscrizione</strong> per iscriversi ad un appello
+                        di esame.
+                    </li>
+                </ol>
             </div>
 
-            <!-- contenuto Form -->
+            <!-- contenuto Studente -->
             <div id="content">
-                <div class="input-form">
-                    <h3>Login</h3>
-
-                    <form method="post" action="login">
-                        <input type="hidden" name="cmd" value="login">
-                        <p>
-                            <label for="user">Username</label>
-                            <input type="text" name="user" id="user"> 
-                        </p>
-                        <p>
-                            <label for="password">Password</label>
-                            <input type="password" name="password" id="password"> 
-                        </p>
-                        <p>
-                            <input type="submit" value="Login">˙
-                        </p>
-                    </form>
-                </div>
+                <h2 class="icon-title" id="h-home">Pannello di Controllo</h2>
             </div>
 
-            <div class="clear">
-            </div>
+            <div style="clear: both; width: 0px; height: 0px;"></div>
             <!--  footer -->
             <footer>
                 <div id="footer">
-                    <p>
+                   <p>
                         Applicazione d'esempio per l'esame di Amministrazione di Sistema
                     </p>
-
-
                 </div>
                 <div class="validator">
                     <p>
