@@ -86,10 +86,11 @@ and open the template in the editor.
                         ${professore.nome} ${professore.cognome} </h3>
                         
                         <div>
-                            ${professore.id}
+                            Il tuo id: ${professore.id}
                         </div>    
                         
                         <ul>
+                            Materie insegnate:
                             <c:forEach var="materia" items="${professore.corsiAssegnati}">
                                 <li>${materia.nome}</li>
                             </c:forEach>

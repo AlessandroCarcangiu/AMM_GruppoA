@@ -86,10 +86,11 @@ and open the template in the editor.
                         ${studente.nome} ${studente.cognome} </h3>
                         
                         <div>
-                            ${studente.id}
+                            Il tuo id: ${studente.id}
                         </div>    
                         
                         <ul>
+                            Il tuo libretto:
                             <c:forEach var="esame" items="${studente.esamiSuperati}">
                                 <li>${esame.materia.nome} - ${esame.voto}</li>
                             </c:forEach>
