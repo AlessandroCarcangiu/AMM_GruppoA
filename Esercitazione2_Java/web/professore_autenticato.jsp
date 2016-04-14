@@ -1,3 +1,11 @@
+<%-- 
+    Document   : professore_autenticato
+    Created on : 13-apr-2016, 15.53.21
+    Author     : Alessandro
+--%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -16,41 +24,32 @@ and open the template in the editor.
     <body>
         <div id="page">
             <header>
-
                 <div class="social">
+                    <p>Accesso al sistema</p>
                     <ul>
-                        <li id="facebook"><a href="www.facebook.com">facebook</a></li>
+                        <li id="facebook"><a href="http://www.facebook.com">facebook</a></li>
                         <li id="twitter"><a href="https://twitter.com/">twitter</a></li>
                         <li id="linkedin"><a href="http://www.linkedin.com/">linkedin</a></li>
                     </ul>
                 </div>
                 <!--  header -->
                 <div id="header">
-                    
                     <div id="logo">
                         <h1>EsAMMi</h1>
                     </div>
 
-
+                    <!-- select per la versione del menu mobile -->
                     <select class="menu">
-                        <option>Home</option>
-                        <option>Anagrafica</option>
-                        <option>Libretto</option>
-                        <option>Iscrizione</option>
-
+                        <option>Menu</option>
                     </select>
-                   <div id="menu">
+                    <!-- tabs -->
+                    <div id="menu">
                         <ul>
-                            <li class="current_page_item"><a href="#">Home</a></li>
-                            <li><a href="studente_anagrafica.html">Anagrafica</a></li>
-                            <li><a href="studente_esami.html">Libretto</a></li>
-                            <li><a href="studente_iscrizione.html">Iscrizione</a></li>
-                        </ul>
-                    </div> 
+                            <li><a class="current_page_item" href="#">Home</a></li>
+                        </ul>                   
+                    </div>
                 </div>
-
             </header>
-
             <!-- start page -->
             <!--  sidebar 1 -->
             <div id="sidebar1">
@@ -58,17 +57,14 @@ and open the template in the editor.
                     <li id="categories">
                         <h2 class="icon-title">Navigazione</h2>
                         <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="studente_anagrafica.html">Anagrafica</a></li>
-                            <li><a href="studente_esami.html">Corsi Tenuti</a></li>
-                            <li><a href="studente_iscrizione.html">Registra Esame</a></li>
+                            <li><a href="#˙">Home</a></li>
                         </ul>
                     </li>
                     <li id="external">
                         <h2 class="icon-title">Link esterni</h2>
                         <ul>
-                            <li><a href="http://www.unica.it/">Universit&agrave; di Cagliari</a></li>
-                            <li><a href="http://www.unica.it/">Facolt&agrave;</a></li>
+                            <li><a href="http://www.unica.it/">Università di Cagliari</a></li>
+                            <li><a href="http://www.unica.it/">Facoltà</a></li>
 
                         </ul>
                     </li>
@@ -77,37 +73,40 @@ and open the template in the editor.
             </div>
 
             <div id="sidebar2">
-                <h2 id="help" class="icon-title">Istruzioni</h2>
+                <h2 class="icon-title" id="help">Istruzioni</h2>
                 <p>
-                    Seleziona una delle  seguentifunzionalit&agrave; disponibili per 
-                    la gestione dei tuoi esami:
+                    Pagina per l'accesso al sistema.
                 </p>
-                <ol>
-                    <li>
-                        <strong>Anagrafica</strong> per modificare i tuoi dati 
-                        anagrafici e la tua password.
-                    </li>
-                    <li>
-                        <strong>Corsi Tenuti</strong> per visualizzare le materie insegnate.
-                    </li>
-                    <li>
-                        <strong>Registra Esame</strong> per registrare un esame
-                    </li>
-                </ol>
             </div>
 
-            <!-- contenuto Professore -->
+            <!-- contenuto Form -->
             <div id="content">
-                <h2 class="icon-title" id="h-home">Pannello di Controllo</h2>
+                <div class="input-form">
+                    <h3> Bentornato,
+                        ${professore.nome} ${professore.cognome} </h3>
+                        
+                        <div>
+                            ${professore.id}
+                        </div>    
+                        
+                        <ul>
+                            <c:forEach var="materia" items="${professore.corsiAssegnati}">
+                                <li>${materia.nome}</li>
+                            </c:forEach>
+                        </ul>
+                </div>
             </div>
 
-            <div style="clear: both; width: 0px; height: 0px;"></div>
+            <div class="clear">
+            </div>
             <!--  footer -->
             <footer>
                 <div id="footer">
-                   <p>
+                    <p>
                         Applicazione d'esempio per l'esame di Amministrazione di Sistema
                     </p>
+
+
                 </div>
                 <div class="validator">
                     <p>

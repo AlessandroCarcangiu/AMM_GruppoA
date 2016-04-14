@@ -14,7 +14,6 @@ public abstract class Utente {
     protected int id;
     protected String nome;
     protected String cognome;
-    
     protected String username;
     protected String password;
     

@@ -72,7 +72,7 @@ public class UtentiFactory {
         // Esami
         Esame esame_1 = new Esame();
         //esame_1.setMateriaId("AMM");
-        esame_1.setVoto(30);
+        esame_1.setVoto(28);
         Esame esame_2 = new Esame();
         //esame_2.setMateriaId("IUM");
         esame_2.setVoto(30);
@@ -80,6 +80,7 @@ public class UtentiFactory {
         arrayEsamiStudente_1.add(esame_1);
         arrayEsamiStudente_1.add(esame_2);
         studente_1.setEsamiSuperati(arrayEsamiStudente_1);
+        listaUtenti.add(studente_1);
 
         // Studente 2
         Studente studente_2 = new Studente();
@@ -99,6 +100,7 @@ public class UtentiFactory {
         arrayEsamiStudente_2.add(esame_3);
         arrayEsamiStudente_2.add(esame_4);
         studente_2.setEsamiSuperati(arrayEsamiStudente_2);
+        
         return listaUtenti;
     }
 }
