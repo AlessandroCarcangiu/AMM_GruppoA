@@ -71,10 +71,10 @@ public class UtentiFactory {
         studente_1.setId(2);
         // Esami
         Esame esame_1 = new Esame();
-        //esame_1.setMateriaId("AMM");
+        esame_1.setMateria(materia_1);
         esame_1.setVoto(28);
         Esame esame_2 = new Esame();
-        //esame_2.setMateriaId("IUM");
+        esame_2.setMateria(materia_2);
         esame_2.setVoto(30);
         ArrayList<Esame> arrayEsamiStudente_1 = new ArrayList<Esame>();
         arrayEsamiStudente_1.add(esame_1);
@@ -91,10 +91,10 @@ public class UtentiFactory {
         studente_2.setId(3);
         // Esami
         Esame esame_3 = new Esame();
-        //esame_3.setMateriaId("PR1");
+        esame_3.setMateria(materia_1);
         esame_3.setVoto(30);
         Esame esame_4 = new Esame();
-        //esame_4.setMateriaId("IUM");
+        esame_4.setMateria(materia_3);
         esame_4.setVoto(30);
         ArrayList<Esame> arrayEsamiStudente_2 = new ArrayList<Esame>();
         arrayEsamiStudente_2.add(esame_3);

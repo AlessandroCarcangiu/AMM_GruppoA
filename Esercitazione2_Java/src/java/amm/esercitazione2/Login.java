@@ -5,9 +5,9 @@
  */
 package amm.esercitazione2;
 
+import amm.esercitazione2.Classi.UtentiFactory;
 import amm.esercitazione2.Classi.Professore;
 import amm.esercitazione2.Classi.Utente;
-import amm.esercitazione2.Classi.UtentiFactory;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -39,16 +39,17 @@ public class Login extends HttpServlet {
         
         if(request.getParameter("Submit") != null)
         {
+            // Preleva i dati inviati
             String username = request.getParameter("Username");
             String password = request.getParameter("Password");
             
             ArrayList<Utente> listaUtenti = UtentiFactory.getInstance().getUserList();
             for(Utente u : listaUtenti)
             {
-                if(u.getUsername().equals(username) && 
+                if(u.getUsername().equals(username) &&
                    u.getPassword().equals(password))
                 {
-                    if(u instanceof Professore)
+                    if(u instanceof Professore) 
                     {
                         request.setAttribute("professore", u);
                         request.getRequestDispatcher("professore_autenticato.jsp").forward(request, response);
@@ -56,14 +57,13 @@ public class Login extends HttpServlet {
                     else
                     {
                         request.setAttribute("studente", u);
-                        request.getRequestDispatcher("studente_autenticato.jsp").forward(request, response);
-           
-                    }
-                }                    
-            }            
+                        request.getRequestDispatcher("studente_autenticato.jsp").forward(request, response);  
+                    }                    
+                }
+            }
         }
         request.getRequestDispatcher("form_login.jsp").forward(request, response);
-        
+ 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
