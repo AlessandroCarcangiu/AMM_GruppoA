@@ -1,10 +1,9 @@
 <%-- 
-    Document   : professore_autenticato
-    Created on : 13-apr-2016, 15.53.21
+    Document   : form_registra
+    Created on : 20-apr-2016, 15.21.49
     Author     : Alessandro
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
@@ -82,36 +81,9 @@ and open the template in the editor.
             <!-- contenuto Form -->
             <div id="content">
                 <div class="input-form">
-                    <h3> Bentornato,
-                        ${professore.nome} ${professore.cognome} </h3>
-                        
-                        <div>
-                            <h4>Il tuo ID</h4>
-                            ${professore.id}
-                        </div>    
-                        
-                        <div>
-                            <h4>Materie insegnate:</h4>
-                            <ul>
-                                <c:forEach var="materia" items="${professore.corsiAssegnati}">
-                                    <li>${materia.nome}</li> 
-                                </c:forEach>
-                            </ul>
-                        </div>
-                        
-                        <div>
-                            <h4>Registrazione Esami</h4>
-                            
-                            <ul>
-                                <c:forEach var="alunno" items="${listaAlunni}">
-                                    <li>${alunno.nome} ${alunno.cognome}
-                                        <a href="Registra?alunnoId=${alunno.id}">
-                                        Registra esame
-                                        </a>
-                                    </li>
-                                </c:forEach>
-                            </ul>
-                        </div>
+                    <h3>Login</h3>
+
+
                 </div>
             </div>
 
@@ -138,3 +110,4 @@ and open the template in the editor.
         </div>
     </body>
 </html>
+

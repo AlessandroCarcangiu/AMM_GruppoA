@@ -38,6 +38,8 @@ public class Login extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
+        HttpSession session = request.getSession(true);
+        
         if(request.getParameter("Submit") != null)
         {
             // Preleva i dati inviati
@@ -50,6 +52,7 @@ public class Login extends HttpServlet {
                 if(u.getUsername().equals(username) &&
                    u.getPassword().equals(password))
                 {
+                    session.setAttribute("loggedIn", true);
                     
                     if(u instanceof Professore) 
                     {
