@@ -16,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -49,9 +50,11 @@ public class Login extends HttpServlet {
                 if(u.getUsername().equals(username) &&
                    u.getPassword().equals(password))
                 {
+                    
                     if(u instanceof Professore) 
                     {
                         request.setAttribute("professore", u);
+                        request.setAttribute("alunni", UtentiFactory.getInstance().getStudenteList());
                         request.getRequestDispatcher("professore_autenticato.jsp").forward(request, response);
                     }
                     else
