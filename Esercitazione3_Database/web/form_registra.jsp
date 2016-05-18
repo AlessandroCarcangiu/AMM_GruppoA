@@ -3,7 +3,7 @@
     Created on : 20-apr-2016, 15.21.49
     Author     : Alessandro
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!--
@@ -87,7 +87,7 @@ and open the template in the editor.
             <!-- Nome, Cognome e Matricola Studente -->
             <div>
                 ${alunno.nome} ${alunno.cognome}                 
-                <input type="hidden" name="id" id="id" value="${alunno.id}"/>       
+                <input type="hidden" name="alunnoId" id="id" value="${alunno.id}"/>       
             </div>
             
             <!-- Lista esami e voto -->

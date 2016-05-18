@@ -38,7 +38,91 @@ public class UtentiFactory {
     }
     
     /* Metodi */
-    
+    public Utente getUtente(String username, String password)
+    {
+        try
+        {
+            Connection conn = DriverManager
+                    .getConnection(connectionString, 
+                            "alessandrocarcangiu",
+                            "0000");
+            // sql command
+            String query = "select * from professore where "
+                    + "password = ? and username = ?";
+            PreparedStatement stmt = conn.prepareStatement(query);
+            // dati
+            stmt.setString(1, password);
+            stmt.setString(2, username);
+            //
+            ResultSet set = stmt.executeQuery();
+            
+            if(set.next())
+            {
+                Professore professore = new Professore();
+                professore.id = set.getInt("id");
+                professore.nome = set.getString("nome");
+                professore.cognome = set.getString("cognome");
+                professore.username = set.getString("username");
+                professore.password = set.getString("password");
+                professore.orario_ricevimento = set.
+                        getString("orario_ricevimento");
+                // nuova query, corsiAssegnati
+                query = "select materia.id, materia.nome from materia "
+                        + "join materie_assegnate "
+                        + "on materia.id = materie_assegnate.idMateria "
+                        + "where materie_assegnate.idProfessore="+professore.id;
+                Statement st = conn.createStatement();
+                ResultSet res2 = st.executeQuery(query);
+                while(res2.next())
+                {
+                    Materia m = new Materia();
+                    m.setId(res2.getInt("id"));
+                    m.setNome(res2.getString("nome"));
+                    professore.corsiAssegnati.add(m);
+                }
+                st.close();
+                stmt.close();
+                conn.close();
+                
+                return professore;
+            }
+            
+            // Studente
+            // sql command
+            query = "select * from studente where "
+                    + "password = ? and username = ?";
+            stmt = conn.prepareStatement(query);
+            // dati
+            stmt.setString(1, password);
+            stmt.setString(2, username);
+            //
+            set = stmt.executeQuery();
+            
+            if(set.next())
+            {
+                Studente studente = new Studente();
+                studente.id = set.getInt("id");
+                studente.nome = set.getString("nome");
+                studente.cognome = set.getString("cognome");
+                studente.username = set.getString("username");
+                studente.password = set.getString("password");
+                studente.matricola = set.
+                        getInt("matricola");
+                stmt.close();
+                conn.close();
+                return studente;
+            }
+            
+            stmt.close();
+            conn.close();
+        }
+        catch(SQLException e)
+        {
+            
+        }
+        return null;
+    }
+            
     // Professore
     // Dato un id restituisce il relativo professore (se esiste un professore con quell'id, altrimenti
     // restituisce null).
@@ -186,9 +270,7 @@ public class UtentiFactory {
             stmt.setInt(1, id);
             // Esecuzione query
             ResultSet res = stmt.executeQuery();
-            stmt.close();
-            conn.close();
-            
+           
              // ciclo sulle righe restituite
             if(res.next()) 
             {
@@ -199,8 +281,14 @@ public class UtentiFactory {
                 current.setUsername(res.getString("username"));
                 current.setPassword(res.getString("password"));
                 current.setMatricola(res.getInt("matricola"));
+                
+                stmt.close();
+                conn.close();
                 return current;
-            }     
+            }
+            
+            stmt.close();
+            conn.close();
         } 
         catch (SQLException e) 
         {
@@ -221,8 +309,6 @@ public class UtentiFactory {
             String query = "select * from "
             + "materia'";
             ResultSet set = stmt.executeQuery(query);
-            stmt.close();
-            conn.close();
             
              // ciclo sulle righe restituite
             while(set.next()) 
@@ -231,7 +317,10 @@ public class UtentiFactory {
                 current.setId(set.getInt("id"));
                 current.setNome(set.getString("nome"));
                 lista.add(current);
-            }     
+            }
+            
+            stmt.close();
+            conn.close();
         } 
         catch (SQLException e) 
         {
@@ -240,22 +329,20 @@ public class UtentiFactory {
         return lista;
     }
     // Dato un id restituisce la relativa materia
-    public Materia getMateria(int id)
+    public Materia getMateria(String nome)
     {
         try 
         {
             // path, username, password
             Connection conn = DriverManager.getConnection(connectionString, "alessandrocarcangiu", "0000");
             String query = "select * from materia "
-            + "where id = ?";
+            + "where nome = ?";
             // Prepared Statement
             PreparedStatement stmt = conn.prepareStatement(query);
             // Si associano i valori
-            stmt.setInt(1, id);
+            stmt.setString(1, nome);
             // Esecuzione query
             ResultSet res = stmt.executeQuery();
-            stmt.close();
-            conn.close();
             
              // ciclo sulle righe restituite
             if(res.next()) 
@@ -263,8 +350,14 @@ public class UtentiFactory {
                 Materia current = new Materia();
                 current.setId(res.getInt("id"));
                 current.setNome(res.getString("nome"));
+   
+                stmt.close();
+                conn.close();
                 return current;
-            }     
+            } 
+            
+            stmt.close();
+            conn.close();
         } 
         catch (SQLException e) 
         {
