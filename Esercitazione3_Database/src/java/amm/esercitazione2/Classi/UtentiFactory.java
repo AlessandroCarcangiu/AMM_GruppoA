@@ -366,6 +366,71 @@ public class UtentiFactory {
         return null;
     }
     
+    public void registrazioneEsame(int idStudente, int idMateria,
+            int voto, String descrizione) throws SQLException
+    {
+        Connection conn = DriverManager.getConnection(
+                UtentiFactory.getInstance().getConnectionString(),
+                "alessandrocarcangiu",
+                "0000");
+        
+        PreparedStatement updatePianodiStudi = null;
+        PreparedStatement updateEsami_superati = null;
+        
+        // Sql 
+        String deletePianodiStudi = "delete from pianodistudi "
+                + "where idMateria = ? "
+                + "and idStudente = ?";
+        String insertEsami_Superati = "insert into esami_superati "
+                + "(idMateria, idStudente, voto, descrizione) "
+                + "values (?,?,?,?)";
+        
+        try
+        {
+           conn.setAutoCommit(false);
+           updatePianodiStudi = conn.
+                   prepareStatement(deletePianodiStudi);
+           updateEsami_superati = conn.
+                   prepareStatement(insertEsami_Superati);
+           
+           // PianodiStudi
+           updatePianodiStudi.setInt(1, idMateria);
+           updatePianodiStudi.setInt(2, idStudente);
+           // Esami_superati
+           updateEsami_superati.setInt(1, idMateria);
+           updateEsami_superati.setInt(2, idStudente);
+           updateEsami_superati.setInt(3, voto);
+           updateEsami_superati.setString(4, descrizione);
+           
+           int c1 = updatePianodiStudi.executeUpdate();
+           int c2 = updateEsami_superati.executeUpdate();
+           
+           if(c1 != 1 || c2 != 1)
+               conn.rollback();
+           
+           conn.commit();           
+        }catch(SQLException e)
+        {
+            try
+            {
+                conn.rollback();
+            }catch(SQLException e2)
+            {
+                
+            }
+        }
+        finally
+        {
+            if(updatePianodiStudi != null)
+                updatePianodiStudi.close();
+            if(updateEsami_superati != null)
+                updateEsami_superati.close();
+            
+            conn.setAutoCommit(true);
+            conn.close();
+        }    
+    }
+    
     // ConnectionString
     public void setConnectionString(String s){
 	this.connectionString = s;
