@@ -27,7 +27,8 @@ import javax.servlet.http.HttpSession;
 @WebServlet(name = "Login", urlPatterns = {"/Login"}, 
         loadOnStartup = 0)
 public class Login extends HttpServlet {
-     private static final String JDBC_DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
+     
+    private static final String JDBC_DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
     private static final String DB_CLEAN_PATH = "../../web/WEB-INF/db/ammdb";
     private static final String DB_BUILD_PATH = "WEB-INF/db/ammdb";
     @Override 
